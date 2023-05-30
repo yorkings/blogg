@@ -1,0 +1,147 @@
+:root {
+    --blue: #072188;
+    --light: #ddd7d7;
+    --dark: #090c33;
+    --border: 2px solid var(--blue);
+    --beautiful: #c98cbcd3;
+}
+
+* {
+    font-family: Tahoma;
+    color: #181616;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+p {
+    text-transform: lowercase;
+    font-family: Georgia;
+}
+
+body {
+    position: relative;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+body {
+    background-color: #072188;
+}
+
+header {
+    background-color: rgba(148, 102, 16, 0.836);
+    height: 50px;
+}
+
+header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 2px;
+    cursor: crosshair;
+}
+
+header nav ul li {
+    list-style-type: none;
+    float: left;
+    align-items: center;
+}
+
+.li {
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 3%;
+}
+
+nav ul li a {
+    font-weight: bolder;
+}
+
+.li a:hover,
+.li.active {
+    color: var(--blue);
+}
+
+.li a:visited {
+    color: rgba(195, 146, 228, 0.89);
+}
+
+.li:hover,
+.active {
+    background-color: rgb(183, 197, 163);
+    border-radius: 4px;
+}
+.lia a{
+    color:white;
+}
+.lia a:hover {
+    color: #0a9749;
+}
+
+.subhead {
+    max-height: 150px;
+    background-image: url('images/back-4.jpg');
+    background-repeat: repeat-x;
+    backdrop-filter: blur(40%);
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 20%;
+}
+
+.subhead button.big-btn {
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: #c5ec34;
+}
+
+.subhead button.big-btn a {
+    text-transform: capitalize;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16pt;
+    color:azure;
+}
+#card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #072188;
+  }
+  
+  .contag {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    height:max-content;
+    background-color:var(--beautiful) ;
+  }
+  
+  .contag img {
+    width: 100%;
+    height: auto;
+    height: 10rem;
+  }
+  
+  .content {
+    margin-top: 10px;
+  }
+  
+  .head {
+    padding:0px;
+    color: rgb(210, 210, 221);
+  }
+  
+  .cont {
+    font-size: 14px;
+  }
+  
+  .btn {
+    height:30px;
+    background-color: #1f6db6d7;
+    color:whitesmoke;
+    margin: 0 auto;
+    border-radius: 14px;
+  }
+  

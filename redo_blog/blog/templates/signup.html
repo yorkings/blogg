@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
+</head>
+<body>
+    <h2>Sign Up</h2>
+    <form method="post">
+        
+        {% if messages %}
+            {% for message in messages %}
+                <p style="padding-top:5px ;padding-left:5px" > {{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% csrf_token %}
+        {% for field in form  %}
+         
+            <p class="forme">{{field.label}} :<br>{{field}}</p>
+          {% for errors in field.errors %}
+          <p style="color:#81401a">{{errors}}</p>
+          {% endfor %}
+        {% endfor %}    
+        <button class="btn" type="submit">Sign Up</button>
+        
+        <p class="forme">already have an acount!! <a href="{% url 'login' %}">click here</a></p>
+    </form>
+</body>
+</html>
