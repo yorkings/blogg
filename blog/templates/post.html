@@ -50,22 +50,20 @@
     <section id="card">
         {% for post in start|slice:"5" %}
             <div class="contag">
-                <div class="contag-container">
-                    <img src="{{ post.imageURL }}" class="img" alt="Image" />
-                    <h5 class="head">author:{{ post.author.user.username}}</h5>
-                    <h4 class="head" >title: {{ post.title }}</h4>
-                    <h6 class="head">{{ post.category.name }}</h6>
-                    <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
-                    {% if user.is_authenticated %} 
-                        <button class="btn btn-primary">
-                            <a href="{% url 'posting' post.id %}" class="btn btn-primary">Read More</a>
-                        </button>
-                    {% else %}
-                        <button class="btn btn-primary">
-                            <a href="{% url 'login' %}">Read More</a>
-                        </button>
-                    {% endif %}
-                </div>
+                <img src="{{ post.imageURL }}" class="img" alt="Image" />
+                <h5 class="head">author:{{ post.author.user.username}}</h5>
+                <h4 class="head" >title: {{ post.title }}</h4>
+                <h6 class="head">{{ post.category.name }}</h6>
+                <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
+                {% if user.is_authenticated %} 
+                    <button class="btn btn-primary">
+                        <a href="{% url 'posting' post.id %}" class="btn btn-primary">Read More</a>
+                    </button>
+                {% else %}
+                    <button class="btn btn-primary">
+                        <a href="{% url 'login' %}">Read More</a>
+                    </button>
+                {% endif %}
             </div>
         {% endfor %} 
     </section>    

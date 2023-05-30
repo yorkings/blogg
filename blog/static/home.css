@@ -1,13 +1,13 @@
 :root {
-    --blue: #ffffff;
+    --blue: #072188;
     --light: #ddd7d7;
     --dark: #090c33;
     --border: 2px solid var(--blue);
-    --beautiful: black;
+    --beautiful: white;
 }
 
 * {
-    font-family: Poppins, Tahoma, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     color: #181616;
     text-decoration: none;
     text-transform: uppercase;
@@ -26,11 +26,11 @@ body {
 }
 
 body {
-    background-image:url(images/back-7.jpg) ;
+    background-color: white;
 }
 
 header {
-    background-color: rgba(20, 14, 3, 0.836);
+    background-color: black;
     height: 50px;
 }
 
@@ -49,9 +49,8 @@ header nav ul li {
     align-items: center;
 }
 .username {
-    color: white;
+ color: white;
 }
-
 .li {
     padding: 0.5rem 1.5rem;
     margin-bottom: 3%;
@@ -109,38 +108,29 @@ nav ul li a {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    background-color: #FFFFFF;
-  }
+    justify-content: center; /* Add this line to center the content horizontally */
+    align-items: center; /* Add this line to center the content vertically */
+}
+
   
   .contag {
-    border: 1px solid #ccc;
+    border: 2px solid black;
     padding: 10px;
     width: 300px;
-    height: max-content;
-    background-color: var(--beautiful);
-  }
-  
-  .contag-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%; /* Occupy full height of the .contag element */
+    height:max-content;
+    background-color:var(--beautiful) ;
   }
   
   .contag img {
     width: 100%;
     height: auto;
-    max-height: 7rem;
+    height: 10rem;
   }
   
   .content {
     margin-top: 10px;
+
   }
-  
-  #card .contag {
-    height: 400px;
-  }
-  
   
   .head {
     padding:0px;
@@ -153,8 +143,8 @@ nav ul li a {
   
   .btn {
     height:30px;
-    background-color: blue;
-    color:whitesmoke;
+    background-color: #1f6db6d7;
+    color:white;
     margin: 0 auto;
     border-radius: 14px;
   }

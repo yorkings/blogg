@@ -2,14 +2,17 @@ body {
     background-color: #dfe5eb;
     font-family: 'Poppins', Arial, sans-serif;
 }
+
 * {
     margin-left: .4rem;
     margin-right: .5rem;
     text-decoration: none;
 }
+
 a {
     font-size: large;
 }
+
 .container {
     margin-top: 20px;
     max-width: auto;
@@ -19,13 +22,10 @@ a {
     margin-bottom: 20px;
 }
 
-.card-body {
-    background-color: #ffffff;
-}
-
 .btn {
     margin-right: 40px;
 }
+
 h1 {
     font-size: 22px;
     font-weight: bolder;
@@ -118,10 +118,16 @@ p {
 .comment-section p {
     font-size: 16px;
     margin-bottom: 10px;
+    color: black; /* Set the text color to black */
+}
+
+.comment-section input,
+.comment-section textarea {
+    color: black; /* Add this line to set the text color to black */
 }
 
 .comment-section .comment {
-    background-color: #f8f9fa;
+    background-color: white;
     padding: 10px;
     margin-bottom: 15px;
 }
@@ -129,14 +135,14 @@ p {
 .comment-section .no-comments {
     font-size: 16px;
     font-style: italic;
-    color: #6c757d;
+    color: black;
 }
 
 input,
 textarea {
     border-radius: 10px;
-    background-color: whitesmoke;
-    color: white;
+    background-color: white;
+    color: black;
     padding-left: 5px;
     padding-top: 4px;
     box-shadow: 0 5px 5px 5px rgb(10, 10, 10);
