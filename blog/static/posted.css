@@ -1,0 +1,151 @@
+body {
+    background-color: #dfe5eb;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+* {
+    margin-left: .4rem;
+    margin-right: .5rem;
+    text-decoration: none;
+}
+a {
+    font-size: large;
+}
+.container {
+    margin-top: 20px;
+    max-width: auto;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.card-body {
+    background-color: #ffffff;
+}
+
+.btn {
+    margin-right: 40px;
+}
+h1 {
+    font-size: 22px;
+    font-weight: bolder;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px rgb(9, 9, 17);
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+h4 {
+    text-decoration: #0062cc;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: crimson;
+}
+
+h6 {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #3f3977;
+    border-color: #0062cc;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-secondary {
+    background-color: #6e6c7d;
+    border-color: #6c757d;
+    height: 40px;
+    width: 100px;
+    transition: width 2s height 4s;
+    border-radius: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    height: 70px;
+    width: 150px;
+}
+
+.comment-section {
+    margin-top: 40px;
+}
+
+.comment-section h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment-section p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.comment-section .comment {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.comment-section .no-comments {
+    font-size: 16px;
+    font-style: italic;
+    color: #6c757d;
+}
+
+input,
+textarea {
+    border-radius: 10px;
+    background-color: whitesmoke;
+    color: white;
+    padding-left: 5px;
+    padding-top: 4px;
+    box-shadow: 0 5px 5px 5px rgb(10, 10, 10);
+}
+
+label {
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+.trip {
+    padding-top: 1.3rem;
+}

@@ -1,0 +1,161 @@
+:root {
+    --blue: #ffffff;
+    --light: #ddd7d7;
+    --dark: #090c33;
+    --border: 2px solid var(--blue);
+    --beautiful: black;
+}
+
+* {
+    font-family: Poppins, Tahoma, sans-serif;
+    color: #181616;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+p {
+    text-transform: lowercase;
+    font-family: Georgia;
+}
+
+body {
+    position: relative;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
+body {
+    background-image:url(images/back-7.jpg) ;
+}
+
+header {
+    background-color: rgba(20, 14, 3, 0.836);
+    height: 50px;
+}
+
+header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 2px;
+    cursor: crosshair;
+}
+
+header nav ul li {
+    list-style-type: none;
+    float: left;
+    align-items: center;
+}
+.username {
+    color: white;
+}
+
+.li {
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 3%;
+}
+
+nav ul li a {
+    font-weight: bolder;
+}
+
+.li a:hover,
+.li.active {
+    color: var(--blue);
+}
+
+.li a:visited {
+    color: white;
+}
+
+.li:hover,
+.active {
+    background-color: rgb(183, 197, 163);
+    border-radius: 4px;
+}
+.lia a{
+    color:white;
+}
+.lia a:hover {
+    color: #0a9749;
+}
+
+.subhead {
+    max-height: 150px;
+    background-repeat: repeat-x;
+    backdrop-filter: blur(40%);
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 20%;
+}
+
+.subhead button.big-btn {
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: black;
+}
+
+.subhead button.big-btn a {
+    text-transform: capitalize;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16pt;
+    color:azure;
+}
+#card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #FFFFFF;
+  }
+  
+  .contag {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    height: max-content;
+    background-color: var(--beautiful);
+  }
+  
+  .contag-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%; /* Occupy full height of the .contag element */
+  }
+  
+  .contag img {
+    width: 100%;
+    height: auto;
+    max-height: 7rem;
+  }
+  
+  .content {
+    margin-top: 10px;
+  }
+  
+  #card .contag {
+    height: 400px;
+  }
+  
+  
+  .head {
+    padding:0px;
+    color: rgb(210, 210, 221);
+  }
+  
+  .cont {
+    font-size: 14px;
+  }
+  
+  .btn {
+    height:30px;
+    background-color: blue;
+    color:whitesmoke;
+    margin: 0 auto;
+    border-radius: 14px;
+  }
+  
