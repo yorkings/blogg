@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    {% load static %}
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(136, 255, 0, 0.219); /* Set the background color */
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start; /* Align the container to the left */
+            width: 80%;
+            background-color: rgba(136, 255, 0, 0.219); /* Set the background color */
+
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+        }
+        .content {
+            width: 80%;
+            padding: 80px 20px 20px;
+            text-align: center; /* Center the content */
+        }
+        .post {
+            display: inline-block;
+            width: 45%;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            text-align: center;
+            
+        }
+        .post:hover{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition:0.1s;
+        }
+          
+        .post h2 {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .post p {
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        .post img {
+            display: block;
+            width: 100%;
+            height: 400px; /* Adjust the height as desired */
+            object-fit: cover;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color:rgba(136, 255, 0, 0.219);
+            cursor:pointer;
+            transition: 0.7s;
+         }
+        .post-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+       
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        
+           
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#">Builders Blog</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Post<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Contact us
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile
+                        </a>
+                      </li>
+                   
+                  </ul>
+               
+                </div>
+              </nav>
+            
+        </div>
+
+        <div class="content">
+            <h1>Builders Blog</h1>
+            <div class="post-container">
+                
+            <div class="post">
+                <div class=" img-thumbnail ">
+                    <img src="{% static 'images/back-1.jpg' %}" alt="Sample Image for Blog Post 1">
+                    
+                </div>
+                <h2><button class ='btn-block'>TensorFlow</button></h2>
+            </div>
+            <div class="post">
+                <div class=" img-thumbnail ">
+                    <img src="{% static 'images/back-2.jpg' %}" alt="Sample Image for Blog Post 1">
+                    
+                </div>
+                <h2><button class="btn-block"> <a href="#">PyTorch</a> </button></h2>
+            </div>
+            <div class="post">
+                <div class=" img-thumbnail ">
+                    <img src="{% static 'images/back-3.jpg' %}" alt="Sample Image for Blog Post 1">
+                    
+                </div>
+                <h2><button class="btn-block">Google Cloud AI</button></h2>
+                
+            </div>
+            <div class="post">
+                <div class=" img-thumbnail ">
+                    <img src="{% static 'images/back-4.jpg' %}" alt="Sample Image for Blog Post 1">
+                    
+                </div>
+                <h2><button class="btn-block btn btn-secondary"  data-toggle="tooltip" data-placement="left" title="Tooltip on left">IBM Watson</button></h2>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

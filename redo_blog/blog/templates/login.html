@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog.css' %}">
+</head>
+<body>
+    <h2>Login</h2>
+   
+    <form method="post">
+        {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+        {% csrf_token %}
+        <p class="loginlook">
+            {{ form.as_p}}
+        </p>
+        
+        <button class='btn' type="submit">Login</button>
+        <p class="forme">Don't have an account <a href="{% url 'signup' %}">signup</a></p>
+    </form>
+</body>
+</html>
