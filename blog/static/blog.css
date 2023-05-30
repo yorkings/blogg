@@ -9,7 +9,7 @@ form{
     max-width:350px;
     margin: 0 auto;
     align-items: center;
-    background-color:rgba(242, 245, 53, 0.795) ;
+    background-color:white ;
     backdrop-filter: blur(30px);
     justify-content: center;
     border-radius: 2px;
