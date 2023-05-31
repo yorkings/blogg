@@ -10,7 +10,96 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body style ="background-color:#eee;">
+<body style ="background-color  :#eee;">
+  <header>
+    <h1><i>Blog.</i></h1>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="15"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{url 'home'}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'post' %}">Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'update_profile' %}">update profile</a>
+        </li>
+        <li class ="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" href="{% url 'login' %}">contact</a>
+        </li>
+        <li class="lia username nav-link">
+          {{user.username}}
+        </li>
+
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <a class="text-reset me-3" href="#">
+        <i class="fas fa-shopping-cart"></i>
+      </a>
+
+      <!-- Notifications -->
+
+      <!-- Avatar -->
+
+        </ul>
+      </div>
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+    <nav>
+        <ul>
+            <li class="li" class="active"><a href="/" >Home</a></li>
+            <li class="li"><a href="{% url 'post' %}">Post</a></li>
+        </ul>
+    </nav>
+    <nav>
+        <ul>
+            <li class="lia"><a href="{% url 'update_profile' %}">Update profile</a> |</li>
+            <li class="lia"><a href="{% url 'logout' %}">Logout</a> |</li>
+            
+        </ul>
+    </nav>
+</header>
     <!-- <div class="container">
         <div class="profile-header">
             <div class="profile-banner">
