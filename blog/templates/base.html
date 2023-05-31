@@ -10,16 +10,14 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
     {% block styles %}
         {% include 'styles.html' %}
-        <link href="{% static 'styles.css' %}" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
     {% include 'navbar.html' %}
 
     {% block content %}
-    {% include 'signup.html' %}
-    {% include 'login.html' %}
-    {% include 'posted.html' %}
+
     {% endblock %}
 
     <script src="https://cdn.tiny.cloud/1/qnv0sa10mtczi6t2upvrr89kbzsop7ikbrt8trdhr4dlltlr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
