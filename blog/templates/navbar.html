@@ -1,0 +1,49 @@
+{% if user.is_authenticated %}
+<div class="header">
+    <header>
+        <div class="row">
+            <div class="col">
+                <h1><i>Blog</i></h1>
+            </div>
+            <div class="col">
+                <nav>
+                    <ul>
+                        <li class="li{% if request.path == '/' %} active{% endif %}"><a href="/">Home</a></li>
+                        <li class="li"><a href="{% url 'post' %}">Post</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col">
+                <nav>
+                    <ul>
+                        <li class="lia"><a href="{% url 'profile' %}">Profile</a> |</li>
+                        <li class="lia"><a href="{% url 'logout' %}">Logout</a> |</li>
+                        <li class="lia username">{{ user.username }}</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</div>
+<section class="margin">
+    <!-- Your page content goes here -->
+    <section class="subhead">
+        <button class="big-btn"><a href="{% url 'post' %}">Create Your Post</a></button>
+    </section>
+</section>
+{% else %}
+<div class="header">
+    <header>
+        <nav>
+            <ul>
+                <li class="li{% if request.path == '/' %} active{% endif %}"><a href="/">Home</a></li>
+                <li class="li"><a href="{% url 'signup' %}">Signup</a></li>
+                <li class="li"><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<section class="margin">
+    <!-- Your page content goes here -->
+</section>
+{% endif %}
