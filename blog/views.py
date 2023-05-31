@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Content, Category, Comment
 from .forms import *
+from django.urls import reverse_lazy
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.views import generic
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 def signup(request):
@@ -87,9 +89,12 @@ def user_profile(request):
     }
     return render(request, 'profile.html', context)
 class update_profile(generic.UpdateView):
-    model = User
+    form_class =  UserChangeForm
     template_name = "update_profile.html"
-
+    success_url = reverse_lazy('profile')
+    
+    def get_object(self):
+        return self.request.user
 
 #     user = request.user
 #     profile = user.profile

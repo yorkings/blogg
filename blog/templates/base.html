@@ -1,19 +1,39 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
-    <!-- Include your CSS and JavaScript files here -->
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+    {% block styles %}
+        {% include 'styles.html' %}
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
+    {% endblock %}
 </head>
 <body>
-    
-        <!-- Add your footer content here -->
-        <p>&copy; 2023 My Blog. All rights reserved.</p>
-    </footer>
+    {% include 'navbar.html' %}
 
-    <!-- Include your additional scripts here -->
-    <script src="{% static 'js/main.js' %}"></script>
+    {% block content %}
+    {% include 'signup.html' %}
+    {% include 'login.html' %}
+    {% include 'posted.html' %}
+    {% endblock %}
+
+    <script src="https://cdn.tiny.cloud/1/qnv0sa10mtczi6t2upvrr89kbzsop7ikbrt8trdhr4dlltlr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+          selector: '#id_content',
+          plugins: 'advtable autolink autosave code codesample colorpicker emoticons fullscreen help image imagetools insertdatetime link lists media noneditable preview print quickbars searchreplace table template textpattern visualblocks wordcount',
+          toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent | link image media | forecolor backcolor | code',
+          menubar: 'file edit view insert format tools table',
+          toolbar_mode: 'floating',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
