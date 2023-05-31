@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+   <link rel="stylesheet" href="{% static 'posted.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+    <div class="container">
+        {% if form.image %}
+            <img src="{{ form.image.url }}" alt="Image"  style="height:20rem;width:40rem;margin: 0 auto;">
+        {% endif %}
+        <div>
+            <h1>title :{{ form.title }}</h1>
+        </div>
+        <div>
+            <h3>author : {{ form.author.user.username }}</h3>
+            <div>
+                <h6>Created at: {{ form.created_at }} | Published: {{ form.published }}</h6>
+            </div>
+            <div>
+                <div>
+                    <h4>{{ form.category.name }}</h4>
+                </div>
+                <div>
+                    {{ form.tag_name }}
+                </div>
+            </div>
+            <div>
+                <p>{{ form.content }}</p>
+            </div>
+            {% if user.username == form.author.user.username %}
+            <button class="btn btn-primary"><a href="{% url 'update_blog' form.id %}" style="color: white;">Update</a></button>
+            <button class="btn btn-danger"><a href="{% url 'delete_blog' form.id %}" style="color: white;">Delete</a></button>
+            {% else %}
+            <button class="btn btn-primary"><a href="" style="color: white;">Update</a></button>
+            <button class="btn btn-danger"><a href="" >Delete</a></button>
+            {% endif %}
+            <div class="comment-section">
+                <h5>Add Comment</h5>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ req.as_p }}
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                </form>
+                <div class="trip">
+                    {% for comment in res %}
+                        <div class="comment"> {{ comment }}</div>
+                    {% empty %}
+                        <p class="no-comments">No comments yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
