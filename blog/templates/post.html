@@ -1,73 +1,63 @@
+{% extends 'base.html' %}
+
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="{% static 'home.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+{% block title %}
+    Home
+{% endblock %}
 
-</head>
-<body>
+
+{% block content %}
+
+<div class="container">
     {% if user.is_authenticated %}
-    <header>
-            <h1><i>Blog.</i></h1>
-            <nav>
-                <ul>
-                    <li class="li" class="active"><a href="/" >Home</a></li>
-                    <li class="li"><a href="{% url 'post' %}">Post</a></li>
-                    <li class="li"><a href="{% url 'login' %}">contact</a></li>
-                </ul>
-            </nav>
-            <nav>
-                <ul>
-                    <li class="lia"><a href="{% url 'profile' %}">profile</a> |</li>
-                    <li class="lia"><a href="{% url 'logout' %}">Logout</a> |</li>
-                    <li class="lia username">{{user.username}}</li>
-                </ul>
-            </nav>
-     </header>
-     <section class="subhead">
-         <button class="big-btn"><a href="{% url 'post' %}">create your post</a></button>
-     </section>
-    {% else %}
-     <header>
-        <nav>
-            <ul>
-                <li  class="li"><a href="/">Home</a></li>
-                <li  class="li"><a href="">contact</a></li>
-                <li  class="li"><a href="{% url 'signup' %}">Signup</a></li>
-                <li  class="li"><a href="{% url 'login' %}">Login</a></li>
-            </ul>
-        </nav>
-     </header>
-    {% endif %}
-    <section id="card">
-        {% for post in start|slice:"5" %}
-            <div class="contag">
-                <img src="{{ post.imageURL }}" class="img" alt="Image" />
-                <h5 class="head">author:{{ post.author.user.username}}</h5>
-                <h4 class="head" >title: {{ post.title }}</h4>
-                <h6 class="head">{{ post.category.name }}</h6>
-                <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
-                {% if user.is_authenticated %} 
-                    <button class="btn btn-primary">
-                        <a href="{% url 'posting' post.id %}" class="btn btn-primary">Read More</a>
-                    </button>
-                {% else %}
-                    <button class="btn btn-primary">
-                        <a href="{% url 'login' %}">Read More</a>
-                    </button>
-                {% endif %}
+        <section id="card">
+            <div class="row">
+                {% for post in start|slice:"5" %}
+                    <div class="col">
+                        <div class="contag">
+                            <div class="img-container">
+                                <img src="{{ post.imageURL }}" class="img" alt="Image" />
+                            </div>
+                            <h5 class="head">author: {{ post.author.user.username }}</h5>
+                            <h4 class="head">title: {{ post.title }}</h4>
+                            <h6 class="head">{{ post.category.name }}</h6>
+                            <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
+                            <button class="btn btn-primary">
+                                <a href="{% url 'posting' post.id %}" class="btn btn-primary">Read More</a>
+                            </button>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                        </div><div class="row">
+                    {% endif %}
+                {% endfor %}
             </div>
-        {% endfor %} 
-    </section>    
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        </section>
+    {% else %}
+        <section id="card">
+            <div class="row">
+                {% for post in start|slice:"5" %}
+                    <div class="col">
+                        <div class="contag">
+                            <div class="img-container">
+                                <img src="{{ post.imageURL }}" class="img" alt="Image" />
+                            </div>
+                            <h5 class="head">author: {{ post.author.user.username }}</h5>
+                            <h4 class="head">title: {{ post.title }}</h4>
+                            <h6 class="head">{{ post.category.name }}</h6>
+                            <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
+                            <button class="btn btn-primary">
+                                <a href="{% url 'login' %}">Read More</a>
+                            </button>
+                        </div>
+                    </div>
+                    {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                        </div><div class="row">
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+</div>
+{% endblock %}
