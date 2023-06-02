@@ -85,7 +85,7 @@ def user_profile(request):
     profile = Profile()
     context = {
         'user': user,
-        'profile': profile
+        'profile': profile  
     }
     return render(request, 'profile.html', context)
 class update_profile(generic.UpdateView):
