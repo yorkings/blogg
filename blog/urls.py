@@ -10,6 +10,6 @@ urlpatterns = [
     path('update_blog/<int:id>', update_blog, name='update_blog'),
     path('delete_blog/<int:id>', delete_blog, name='delete_blog'),
     path('profile/', user_profile, name='profile'),
-    path('update_profile/', update_profile, name='update_profile'),
+    path('update_profile/', update_profile.as_view(), name='update_profile'),
     path('create/',create_post,name='post')
 ]

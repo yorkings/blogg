@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Content, Category, Comment
 from .forms import *
+from django.urls import reverse_lazy
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
+from django.views import generic
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 def signup(request):
@@ -82,31 +85,38 @@ def user_profile(request):
     profile = Profile()
     context = {
         'user': user,
-        'profile': profile
+        'profile': profile  
     }
     return render(request, 'profile.html', context)
-def update_profile(request):
-    user = request.user
-    profile = user.profile
+class update_profile(generic.UpdateView):
+    form_class =  UserChangeForm
+    template_name = "update_profile.html"
+    success_url = reverse_lazy('profile')
+    
+    def get_object(self):
+        return self.request.user
 
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
-    else:
-        form = ProfileForm(instance=profile)
+#     user = request.user
+#     profile = user.profile
 
-    context = {
-        'form': form
-    }
-    return render(request, 'update_profile.html',context)
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST, request.FILES, instance=profile)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('profile')
+#     else:
+#         form = ProfileForm(instance=profile)
+
+#     context = {
+#         'form': form
+#     }
+    
 def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user.author
+            # post.author = request.user.author
             post.save()
             return redirect('index')
     else:

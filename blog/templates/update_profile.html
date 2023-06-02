@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
-    <link rel="stylesheet" href="{% static 'css/update_profile.css' %}">
-    <!-- Add any additional CSS or stylesheets here -->
-</head>
-<body>
-    <div class="update-profile">
+    <link rel="stylesheet" href="">
+     Add any additional CSS or stylesheets here -->
+<!-- </head>
+<body> -->
+    <!-- <div class="update-profile">
         <h1>Update Profile</h1>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -45,7 +45,93 @@
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
-
+ -->
     <!-- Add any additional scripts or JavaScript here -->
+<!-- </body>
+</html> --> 
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tiny.cloud/1/qnv0sa10mtczi6t2upvrr89kbzsop7ikbrt8trdhr4dlltlr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+    <style>
+      h1 {
+            text-align: center;
+        }
+        
+        body {
+          font-family: 'Poppins', Arial, sans-serif;
+        
+        }
+        form {
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 20px;
+          border: 3px solid black;
+          border-radius: 4px;
+          background-color: white;
+          color:black;
+        }
+    
+        form label {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+    
+        form input[type="text"],
+        form textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid black;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+    
+        form button {
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: black;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+    
+        form button:hover {
+          background-color: #0056b3;
+        }
+      </style>
+    <section id="container">
+        <div class="container">
+            <h1>Update Profile</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+               <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+    <!-- <script>
+        tinymce.init({
+          selector: '#id_content',
+          plugins: 'advtable autolink autosave code codesample colorpicker emoticons fullscreen help image imagetools insertdatetime link lists media noneditable preview print quickbars searchreplace table template textpattern visualblocks wordcount',
+          toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent | link image media | forecolor backcolor | code',
+          menubar: 'file edit view insert format tools table',
+          toolbar_mode: 'floating',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+        });
+      </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
