@@ -1,5 +1,58 @@
 {% if user.is_authenticated %}
-<div class="header">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarRightAlignExample"
+        aria-controls="navbarRightAlignExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse " id="navbarRightAlignExample">
+        <!-- Left links -->
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'post' %}">Create Post</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" style="color: black !important;"
+              >{{ user.username }}</a
+            >
+          </li>
+        </ul>
+        <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+
+
+
+
+
+<!-- <div class="header">
     <header>
         <div class="row">
             <div class="col">
@@ -26,24 +79,50 @@
     </header>
 </div>
 <section class="margin">
-    <!-- Your page content goes here -->
-    <section class="subhead">
+    Your page content goes here -->
+    <!-- <section class="subhead">
         <button class="big-btn"><a href="{% url 'post' %}">Create Your Post</a></button>
-    </section>
-</section>
+    </section> -->
+<!-- </section> -->
 {% else %}
-<div class="header">
-    <header>
-        <nav>
-            <ul>
-                <li class="li{% if request.path == '/' %} active{% endif %}"><a href="/">Home</a></li>
-                <li class="li"><a href="{% url 'signup' %}">Signup</a></li>
-                <li class="li"><a href="{% url 'login' %}">Login</a></li>
-            </ul>
-        </nav>
-    </header>
-</div>
-<section class="margin">
-    <!-- Your page content goes here -->
-</section>
-{% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarRightAlignExample"
+      aria-controls="navbarRightAlignExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse " id="navbarRightAlignExample">
+      <!-- Left links -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}">Sign up</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+
+      </ul>
+      
+    </div>
+    
+  </div>
+  
+</nav>
+
+{% endif %} 

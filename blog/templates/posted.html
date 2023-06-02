@@ -1,57 +1,55 @@
 {% extends 'base.html' %}
 
-{% load static %}
-
 {% block title %}
     Blog Post
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        {% if form.image %}
-            <img src="{{ form.image.url }}" alt="Image" class="img">
-        {% endif %}
-        <div>
-            <h1>title: {{ form.title }}</h1>
-        </div>
-        <div>
-            <h3>author: {{ form.author.user.username }}</h3>
-            <div>
-                <h6>Created at: {{ form.created_at }} | Published: {{ form.published }}</h6>
+    <div class="container" id="topDetails" >
+        
+            <div class="image">
+                {% if form.image %}
+                <img src="{{ form.image.url }}" class="rounded" alt="Image" >
+            {% endif %}
             </div>
-            <div>
-                <div>
-                    <h4>{{ form.category.name }}</h4>
-                </div>
-                <div>
+            <div class="details">
+                <p>title: {{ form.title }}</p>
+                
+                <p>author: {{ form.author.user.username }}</p>
+                <p>Created at: {{ form.created_at }} | Published: {{ form.published }}</p>
+    
+                <p>{{ form.category.name }}</p>
                     {{ form.tag_name }}
-                </div>
+       
             </div>
-            <div>
+
+            <div class="content" >
                 <p>{{ form.content }}</p>
             </div>
-            {% if user.username == form.author.user.username %}
-                <button class="btn btn-primary"><a href="{% url 'update_blog' form.id %}" style="color: white;">Update</a></button>
-                <button class="btn btn-danger"><a href="{% url 'delete_blog' form.id %}" style="color: white;">Delete</a></button>
-            {% else %}
-                <button class="btn btn-primary"><a href="" style="color: white;">Update</a></button>
-                <button class="btn btn-danger"><a href="">Delete</a></button>
-            {% endif %}
-            <div class="comment-section">
-                <h5>Add Comment</h5>
-                <form method="post">
-                    {% csrf_token %}
-                    {{ req.as_p }}
-                    <button type="submit" class="btn btn-secondary">Submit</button>
-                </form>
-                <div class="trip">
-                    {% for comment in res %}
-                        <div class="comment">{{ comment }}</div>
-                    {% empty %}
-                        <p class="no-comments">No comments yet.</p>
-                    {% endfor %}
-                </div>
+        
+
+    </div>
+
+    {% if user.username == form.author.user.username %}
+    <button class="btn btn-primary"><a href="{% url 'update_blog' form.id %}" style="color: white;">Update</a></button>
+    <button class="btn btn-danger"><a href="{% url 'delete_blog' form.id %}" style="color: white;">Delete</a></button>
+    {% else %}
+        <div class="comment-section">
+            <h5>Add Comment</h5>
+            <form method="post">
+                {% csrf_token %}
+                {{ req.as_p }}
+                <button type="submit" class="btn btn-secondary">Post Comment</button>
+            </form>
+            <div class="trip">
+                {% for comment in res %}
+                    <div class="comment">{{ comment }}</div>
+                {% empty %}
+                    <p class="no-comments">No comments yet.</p>
+                {% endfor %}
             </div>
         </div>
-    </div>
+        {% endif %}
+        
+    
 {% endblock %}

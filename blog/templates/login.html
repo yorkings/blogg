@@ -5,20 +5,25 @@
 {% endblock %}
 
 {% block content %}
-    <div class="form-container">
-        <h2>Login</h2>
-        <form method="post" class="login-form">
-            {% if messages %}
-                {% for message in messages %}
-                    <p>{{ message }}</p>
-                {% endfor %}
-            {% endif %}
-            {% csrf_token %}
-            <p class="login-look">
-                {{ form.as_p }}
-            </p>
-            <button class='btn' type="submit">Login</button>
-            <p class="forme">Don't have an account? <a href="{% url 'signup' %}">Click here to sign up</a></p>
-        </form>
-    </div>
+<div class="login">
+    <h2>Login</h2>
+
+    <form method="post" class="form">
+        {% csrf_token %}
+        
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        
+        <p class="loginlook">
+            {{ form.as_p}}
+        </p>
+        
+        <button class='btn btn-primary' type="submit">Login</button>
+        
+        <p class=" forme">Don't have an account <a href="{% url 'signup' %}">signup</a></p>
+    </form>
+</div>
 {% endblock %}

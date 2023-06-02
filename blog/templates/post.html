@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% load static %}
-
 {% block title %}
     Home
 {% endblock %}
@@ -9,55 +7,59 @@
 
 {% block content %}
 
-<div class="container">
-    {% if user.is_authenticated %}
-        <section id="card">
-            <div class="row">
-                {% for post in start|slice:"5" %}
-                    <div class="col">
-                        <div class="contag">
-                            <div class="img-container">
-                                <img src="{{ post.imageURL }}" class="img" alt="Image" />
-                            </div>
-                            <h5 class="head">author: {{ post.author.user.username }}</h5>
-                            <h4 class="head">title: {{ post.title }}</h4>
-                            <h6 class="head">{{ post.category.name }}</h6>
-                            <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
-                            <button class="btn btn-primary">
-                                <a href="{% url 'posting' post.id %}" class="btn btn-primary">Read More</a>
-                            </button>
-                        </div>
+
+{% if user.is_authenticated %}
+    <div class="container">
+    
+            {% for post in start|slice:"5" %}
+                <div class="col">
+                    <!-- <div class="img-container">
+
+                    </div> -->
+                    <div class="contag">
+                        <img src="{{ post.imageURL }}" class="img rounded" alt="Image" />
+                        <p class="head">author: {{ post.author.user.username }}</p>
+                        <p class="head">title: {{ post.title }}</p>
+                        <p class="head">{{ post.category.name }}</p>
+                        <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
+                        <button class="btn btn-primary">
+                            <a href="{% url 'posting' post.id %}" class="btn btn-primary">Read More</a>
+                        </button>
                     </div>
-                    {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                        </div><div class="row">
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </section>
+                    
+                </div>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                    </div><div class="row">
+                {% endif %}
+            {% endfor %}
+        
+
+
+    </div>
     {% else %}
-        <section id="card">
-            <div class="row">
-                {% for post in start|slice:"5" %}
-                    <div class="col">
-                        <div class="contag">
-                            <div class="img-container">
-                                <img src="{{ post.imageURL }}" class="img" alt="Image" />
-                            </div>
-                            <h5 class="head">author: {{ post.author.user.username }}</h5>
-                            <h4 class="head">title: {{ post.title }}</h4>
-                            <h6 class="head">{{ post.category.name }}</h6>
-                            <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
-                            <button class="btn btn-primary">
-                                <a href="{% url 'login' %}">Read More</a>
-                            </button>
-                        </div>
+        <div class="container">
+
+        {% for post in start|slice:"5" %}
+            <div class="col">
+                <div class="contag">
+                    <div class="img-container">
+                        <img src="{{ post.imageURL }}" class="img" alt="Image" />
                     </div>
-                    {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                        </div><div class="row">
-                    {% endif %}
-                {% endfor %}
+                    <h5 class="head">author: {{ post.author.user.username }}</h5>
+                    <h4 class="head">title: {{ post.title }}</h4>
+                    <h6 class="head">{{ post.category.name }}</h6>
+                    <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
+                    <button class="btn btn-primary">
+                        <a href="{% url 'login' %}">Read More</a>
+                    </button>
+                </div>
             </div>
-        </section>
-    {% endif %}
-</div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+
+        </div>
+    {%endif%}
+
 {% endblock %}
