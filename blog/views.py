@@ -28,6 +28,7 @@ def login_user(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                Author.object.create(name =user.name)
               #  messages.success(request,  ' {{user}} you have been logged in!')
                 return redirect('index')
             else:
@@ -113,10 +114,10 @@ class update_profile(generic.UpdateView):
     
 def create_post(request):
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
+        form = PostForm(request.POST,request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
-            # post.author = request.user.author
+            post.author = request.user
             post.save()
             return redirect('index')
     else:

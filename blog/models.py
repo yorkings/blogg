@@ -29,7 +29,7 @@ class Content(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.OneToOneField(Author, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     published = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='images', blank=True, null=True)
