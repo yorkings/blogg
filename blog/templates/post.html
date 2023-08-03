@@ -11,19 +11,19 @@
 {% if user.is_authenticated %}
     <div class="container">
     
-            {% for post in start|slice:"5" %}
-                <div class="col">
+            {% for post in posts %}
+                <div class="col-md-4 d-flex  ">
                     <!-- <div class="img-container">
 
                     </div> -->
-                    <div class="contag">
+                    <div class="contag w-100 m-3 p-3  "  >
                         <img src="{{ post.imageURL }}" class="img rounded" alt="Image" />
-                        <p class="head">author: {{ post.author.user.username }}</p>
+                        <p class="head">author: {{ post.author }}</p>
                         <p class="head">title: {{ post.title }}</p>
                         <p class="head">{{ post.category.name }}</p>
                         <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
                         <button class="btn btn-primary">
-                            <a href="{% url 'posting' post.id %}" class="btn btn-primary">Read More</a>
+                            <a href="{% url 'posting' post.id %}" class="btn btn-primary text-decoration-none text-white">Read More</a>
                         </button>
                     </div>
                     
@@ -39,7 +39,7 @@
     {% else %}
         <div class="container">
 
-        {% for post in start|slice:"5" %}
+        {% for post in posts %}
             <div class="col">
                 <div class="contag">
                     <div class="img-container">
@@ -50,7 +50,7 @@
                     <h6 class="head">{{ post.category.name }}</h6>
                     <p class="cont">{{ post.content|truncatewords_html:10 }}</p>
                     <button class="btn btn-primary">
-                        <a href="{% url 'login' %}">Read More</a>
+                        <a class = "text-decoration-none text-white" href="{% url 'login' %}">Read More</a>
                     </button>
                 </div>
             </div>

@@ -1,3 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update Blog
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +51,7 @@
       background-color: #0056b3;
     }
   </style>
-  <script src="https://cdn.tiny.cloud/1/rzyk88iijycz1wx725lfunub5yo4rtlc1iear0e3bhdits52/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  {% comment %} <script src="https://cdn.tiny.cloud/1/rzyk88iijycz1wx725lfunub5yo4rtlc1iear0e3bhdits52/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> {% endcomment %}
 </head>
 <body>
   <form method="post" enctype="multipart/form-data">
@@ -66,3 +73,4 @@
   </form>
 </body>
 </html>
+{%endblock%}

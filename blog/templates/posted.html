@@ -15,7 +15,7 @@
             <div class="details">
                 <p>title: {{ form.title }}</p>
                 
-                <p>author: {{ form.author.user.username }}</p>
+                <p>author: {{ form.author }}</p>
                 <p>Created at: {{ form.created_at }} | Published: {{ form.published }}</p>
     
                 <p>{{ form.category.name }}</p>
@@ -26,14 +26,14 @@
             <div class="content" >
                 <p>{{ form.content }}</p>
             </div>
-        
-
+            {%if user == form.author%}
+            <button class="btn btn-primary"><a href="{% url 'update_blog' form.id %}" style="color: white;">Update</a></button>
+            <button class="btn btn-danger"><a href="{% url 'delete_blog' form.id %}" style="color: white;">Delete</a></button>
+            {%endif%}
     </div>
 
-    {% if user.username == form.author.user.username %}
-    <button class="btn btn-primary"><a href="{% url 'update_blog' form.id %}" style="color: white;">Update</a></button>
-    <button class="btn btn-danger"><a href="{% url 'delete_blog' form.id %}" style="color: white;">Delete</a></button>
-    {% else %}
+    
+   
         <div class="comment-section">
             <h5>Add Comment</h5>
             <form method="post">
@@ -49,7 +49,7 @@
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
+        
         
     
 {% endblock %}

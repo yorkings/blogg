@@ -28,7 +28,7 @@ def login_user(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                Author.object.create(name =user.name)
+                # Author.objects.create(name =user)
               #  messages.success(request,  ' {{user}} you have been logged in!')
                 return redirect('index')
             else:
@@ -43,13 +43,12 @@ def logout_user(request):
     logout(request)
     messages.success(request, 'You have been logged out.')
     return redirect('login')
-
 def home(request):
     return render(request, 'index.html')
 
 def index(request):
-    form = Content.objects.all()
-    return render(request, 'post.html', {'start': form})
+    posts = Content.objects.all()
+    return render(request, 'post.html', {'posts': posts})
 
 def posting(request, id):
     begin = Content.objects.get(id=id)
@@ -113,12 +112,31 @@ class update_profile(generic.UpdateView):
 #     }
     
 def create_post(request):
+    initial_data = {
+            'author': request.user.username,
+            
+        }    
+    form =PostForm(initial= initial_data)
+    
     if request.method == 'POST':
+
         form = PostForm(request.POST,request.FILES)
+
         if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
+            
+            category_id = request.POST.get('category')
+            category = get_object_or_404(Category, pk=category_id)
+
+            
+            Content.objects.create(
+                title = request.POST.get('title'),
+                slug = request.POST.get('slug'),
+                category = category,
+                author = request.user,
+                image = request.FILES['image'],
+                content = request.POST.get('content'),
+                status = request.POST.get('status')
+            )
             return redirect('index')
     else:
         form = PostForm()
