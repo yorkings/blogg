@@ -8,6 +8,7 @@ from django.views import generic
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -48,7 +49,17 @@ def home(request):
 
 def index(request):
     posts = Content.objects.all()
-    return render(request, 'post.html', {'posts': posts})
+    paginator = Paginator(posts,3)
+    page_number = request.GET.get('page',1)
+    try:
+        posts = paginator.page(page_number)
+    except PageNotAnInteger:
+        #if page is not an integer 
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    context = {'posts': posts,}
+    return render(request, 'post.html', context)
 
 def posting(request, id):
     begin = Content.objects.get(id=id)
@@ -57,7 +68,11 @@ def posting(request, id):
     if request.method=='POST':
        req=CommentForm(request.POST)
        if req.is_valid():
-           req.save()
+           post = begin
+           username = request.user
+           email = request.POST.get('email')
+           text = request.POST.get('text')
+           Comment.objects.create(post = post, username = username, email=email, text = text)
     else:
         req = CommentForm()      
     return render(request, 'posted.html', {'form': begin, 'res': res,'req':req})
@@ -126,7 +141,6 @@ def create_post(request):
             
             category_id = request.POST.get('category')
             category = get_object_or_404(Category, pk=category_id)
-
             
             Content.objects.create(
                 title = request.POST.get('title'),

@@ -43,7 +43,7 @@
             </form>
             <div class="trip">
                 {% for comment in res %}
-                    <div class="comment">{{ comment }}</div>
+                    <div class="comment">{{ comment.text }}</div>
                 {% empty %}
                     <p class="no-comments">No comments yet.</p>
                 {% endfor %}
