@@ -21,7 +21,7 @@
     {% endblock %}
 
     <script src="https://cdn.tiny.cloud/1/qnv0sa10mtczi6t2upvrr89kbzsop7ikbrt8trdhr4dlltlr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
+    {% comment %} <script>
         tinymce.init({
           selector: '#id_content',
           plugins: 'advtable autolink autosave code codesample colorpicker emoticons fullscreen help image imagetools insertdatetime link lists media noneditable preview print quickbars searchreplace table template textpattern visualblocks wordcount',
@@ -31,7 +31,7 @@
           tinycomments_mode: 'embedded',
           tinycomments_author: 'Author name',
         });
-    </script>
+    </script> {% endcomment %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

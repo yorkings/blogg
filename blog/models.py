@@ -11,16 +11,9 @@ class Category(models.Model):
         return self.name
 
 
-class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    bio = models.TextField()
-
-    def __str__(self):
-        return self.user.username
 
 
 class Content(models.Model):
-    tag = TaggableManager()
 
     class Status(models.TextChoices):
         PUBLISH = 'pb', 'Published'
@@ -29,13 +22,13 @@ class Content(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     published = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='images', blank=True, null=True)
     content = models.TextField()
     status = models.CharField(max_length=100, choices=Status.choices, default=Status.PUBLISH)
-
+    
     def imageURL(self):
         try:
             url = self.image.url
